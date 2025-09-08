@@ -11,7 +11,20 @@ public class Teacher extends Person{
     }
 
     public String introduce(){
-        return "My name is %s. I am %d years old. I am a teacher.".formatted(getName(), getAge());
+        StringBuilder introduceMsg = new StringBuilder();
+        introduceMsg.append(super.introduce() + " I am a teacher.");
+        if (!classes.isEmpty()) {
+            introduceMsg.append(" I teach Class");
+            for (Klass klass : classes) {
+                introduceMsg.append(" " + klass.getNumber());
+                if (klass != classes.get(classes.size() - 1)) {
+                    introduceMsg.append(",");
+                }
+
+            }
+            return introduceMsg.toString() + ".";
+        }
+        return introduceMsg.toString();
     }
 
     public void assignTo(Klass klass) {

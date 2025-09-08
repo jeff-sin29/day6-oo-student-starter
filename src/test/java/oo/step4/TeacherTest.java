@@ -4,8 +4,7 @@ import oo.Klass;
 import oo.Teacher;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TeacherTest {
 
@@ -43,9 +42,26 @@ public class TeacherTest {
     }
 
     //when introduce given teacher teach one class then return message
-    
+    @Test
+    void should_introduce_self_when_introduce_given_teacher_teach_one_class(){
+        //TODO
+        Klass klass1 = new Klass(1);
+        Teacher teacher = new Teacher(1, "Jerry", 21);
+        teacher.assignTo(klass1);
+        assertEquals("My name is Jerry. I am 21 years old. I am a teacher. I teach Class 1.", teacher.introduce());
+    }
 
     // when introduce given teacher teach multiple classes then return message
+    @Test
+    void should_introduce_self_when_introduce_given_teacher_teach_multiple_classes(){
+        //TODO
+        Klass klass1 = new Klass(2);
+        Klass klass2 = new Klass(3);
+        Teacher teacher = new Teacher(1, "Jerry", 21);
+        teacher.assignTo(klass1);
+        teacher.assignTo(klass2);
+        assertEquals("My name is Jerry. I am 21 years old. I am a teacher. I teach Class 2, 3.", teacher.introduce());
+    }
 
     // when isTeaching given student not in the class taught by teacher then should return false
 
