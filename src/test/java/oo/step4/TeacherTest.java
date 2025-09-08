@@ -1,6 +1,7 @@
 package oo.step4;
 
 import oo.Klass;
+import oo.Student;
 import oo.Teacher;
 import org.junit.jupiter.api.Test;
 
@@ -54,7 +55,6 @@ public class TeacherTest {
     // when introduce given teacher teach multiple classes then return message
     @Test
     void should_introduce_self_when_introduce_given_teacher_teach_multiple_classes(){
-        //TODO
         Klass klass1 = new Klass(2);
         Klass klass2 = new Klass(3);
         Teacher teacher = new Teacher(1, "Jerry", 21);
@@ -64,8 +64,38 @@ public class TeacherTest {
     }
 
     // when isTeaching given student not in the class taught by teacher then should return false
+    @Test
+    void should_return_false_when_isTeaching_given_student_not_in_the_class_taught_by_teacher(){
+        Klass klass2 = new Klass(2);
+        Klass klass3 = new Klass(3);
+        Student student = new Student(1, "Tom", 18);
+        Teacher teacher = new Teacher(1, "Jerry", 21);
+        student.join(klass3);
+        teacher.assignTo(klass2);
+        assertFalse(teacher.isTeaching(student));
+    }
 
     // when isTeaching given student in the class taught by teacher then return true
+    @Test
+    void should_return_true_when_isTeaching_given_student_is_in_the_class_taught_by_teacher(){
+        Klass klass2 = new Klass(2);
+        Student student = new Student(1, "Tom", 18);
+        Teacher teacher = new Teacher(1, "Jerry", 21);
+        student.join(klass2);
+        teacher.assignTo(klass2);
+        assertTrue(teacher.isTeaching(student));
+    }
 
     // when isTeaching given student in any class taught by teacher then return true
+    @Test
+    void should_return_true_when_isTeaching_given_student_is_in_any_class_taught_by_teacher() {
+        Klass klass2 = new Klass(2);
+        Klass klass3 = new Klass(3);
+        Student student = new Student(1, "Tom", 18);
+        Teacher teacher = new Teacher(1, "Jerry", 21);
+        student.join(klass3);
+        teacher.assignTo(klass2);
+        teacher.assignTo(klass3);
+        assertTrue(teacher.isTeaching(student));
+    }
 }
