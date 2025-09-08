@@ -4,6 +4,7 @@ import oo.Student;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class StudentTest {
 
@@ -24,4 +25,11 @@ public class StudentTest {
     }
 
     // when equals two different id student then return true
+    @Test
+    void should_return_false_when_Equals_given_different_id(){
+        Student student1 = new Student(1, "Tom", 18);
+        Student student2 = new Student(2, "Tom", 19);
+
+        assertNotEquals(student1, student2);
+    }
 }
