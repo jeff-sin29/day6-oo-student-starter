@@ -28,7 +28,16 @@ public class StudentTest {
     }
 
     // when student join two klass then return recently klass
+    @Test
+    void should_return_correct_klass_when_getKlass_given_student_joined_two_klass() {
+        //TODO
+        Student student = new Student(1, "Tom", 18);
+        Klass klass1 = new Klass(2);
+        Klass klass2 = new Klass(3);
+        student.join(klass1);
+        student.join(klass2);
+        assertTrue(student.isIn(klass2));
 
-    // when introduce a student is in a class then return message with name age and class
-
+        // when introduce a student is in a class then return message with name age and class
+    }
 }
