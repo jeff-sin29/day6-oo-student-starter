@@ -3,7 +3,7 @@ package oo.step1;
 import oo.Person;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PersonTest {
 
@@ -18,12 +18,19 @@ public class PersonTest {
     // when equals two same id person then return true
     @Test
     void should_return_true_when_isSamePerson_given_same_id(){
-        Person person = new Person(1, "Tom", 18);
-        Person person1 = new Person(1, "Tom", 19);
+        Person person1 = new Person(1, "Tom", 18);
+        Person person2 = new Person(1, "Tom", 19);
 
-        assertTrue(person.isSamePerson(person1));
+        assertEquals(person1, person2);
     }
 
-    // when equals two different id person then return true
+    // when equals two different id person then return false
+    @Test
+    void should_return_false_when_isSamePerson_given_different_id(){
+        Person person1 = new Person(1, "Tom", 18);
+        Person person2 = new Person(2, "Tom", 16);
+
+        assertNotEquals(person1, person2);
+    }
 
 }

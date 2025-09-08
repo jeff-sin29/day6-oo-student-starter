@@ -1,5 +1,7 @@
 package oo;
 
+import java.util.Objects;
+
 public class Person {
     private final int id;
     private final String name;
@@ -15,7 +17,16 @@ public class Person {
         return "My name is %s. I am %d years old.".formatted(name, age);
     }
 
-    public boolean isSamePerson(Person person1){
-        return this.id == person1.id;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return id == person.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
     }
 }
