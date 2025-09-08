@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Klass {
     int number;
+    Student leader;
 
     public Klass(int number) {
         this.number = number;
@@ -24,5 +25,13 @@ public class Klass {
     @Override
     public int hashCode() {
         return Objects.hashCode(number);
+    }
+
+    public void assignLeader(Student student) {
+        if (!student.isIn(this)) {
+            System.out.println("It is not one of us.");
+            return;
+        }
+        this.leader = student;
     }
 }
