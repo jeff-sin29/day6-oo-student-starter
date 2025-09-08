@@ -16,6 +16,13 @@ public class PersonTest {
     }
 
     // when equals two same id person then return true
+    @Test
+    void should_return_true_when_isSamePerson_given_same_id(){
+        Person person = new Person(1, "Tom", 18);
+        Person person1 = new Person(1, "Tom", 19);
+
+        assertTrue(person.isSamePerson(person1));
+    }
 
     // when equals two different id person then return true
 

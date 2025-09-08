@@ -14,4 +14,8 @@ public class Person {
     public String introduce(){
         return "My name is %s. I am %d years old.".formatted(name, age);
     }
+
+    public boolean isSamePerson(Person person1){
+        return this.id == person1.id;
+    }
 }
