@@ -15,6 +15,13 @@ public class StudentTest {
     }
 
     // when equals two same id student then return true
+    @Test
+    void should_return_true_when_Equals_given_same_id(){
+        Student student1 = new Student(1, "Tom", 18);
+        Student student2 = new Student(1, "Tom", 19);
+
+        assertEquals(student1, student2);
+    }
 
     // when equals two different id student then return true
 }

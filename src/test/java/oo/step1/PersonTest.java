@@ -17,7 +17,7 @@ public class PersonTest {
 
     // when equals two same id person then return true
     @Test
-    void should_return_true_when_isSamePerson_given_same_id(){
+    void should_return_true_when_Equals_given_same_id(){
         Person person1 = new Person(1, "Tom", 18);
         Person person2 = new Person(1, "Tom", 19);
 
@@ -26,7 +26,7 @@ public class PersonTest {
 
     // when equals two different id person then return false
     @Test
-    void should_return_false_when_isSamePerson_given_different_id(){
+    void should_return_false_when_Equals_given_different_id(){
         Person person1 = new Person(1, "Tom", 18);
         Person person2 = new Person(2, "Tom", 16);
 
