@@ -7,6 +7,9 @@ public class Student extends Person{
     }
 
     public String introduce(){
+        if (klass != null) {
+            return "My name is %s. I am %d years old. I am a student. I am in class %d.".formatted(getName(), getAge(), klass.getNumber());
+        }
         return "My name is %s. I am %d years old. I am a student.".formatted(getName(), getAge());
     }
 
